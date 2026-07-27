@@ -1,0 +1,71 @@
+$primary: blue;
+$secondary: pink;
+$bg: #f4f4f4;
+$white: white;
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: $bg;
+}
+nav {
+    @include center;
+    justify-content: space-between;
+    padding: 15px;
+    background: $primary;
+    color: $white;
+
+    ul {
+        display: flex;
+        list-style: none;
+
+        li {
+            margin-left: 20px;
+
+            a {
+                color: $white;
+                text-decoration: none;
+            }
+        }
+    }
+}
+.hero {
+    @include center;
+    flex-direction: column;
+    height: 80vh;
+    text-align: center;
+
+    button {
+        padding: 10px 20px;
+        background: $primary;
+        color: $white;
+        border: none;
+        cursor: pointer;
+    }
+}
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        background: $secondary; 
+
+        ul {
+            flex-direction: column;
+            padding: 0;
+
+            li {
+                margin: 10px 0;
+            }
+        }
+    }
+
+    .hero {
+        button {
+            background: $secondary; 
+        }
+    }
+}
