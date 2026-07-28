@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial;
-  background: #f4f4f4;
+  background: #f8f9fa;
 }
 
 nav {
@@ -10,8 +10,8 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-  background: blue;
-  color: white;
+  background: rgb(9, 253, 90);
+  color: #ffffff;
 }
 nav ul {
   display: flex;
@@ -21,7 +21,7 @@ nav ul li {
   margin-left: 20px;
 }
 nav ul li a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -35,8 +35,8 @@ nav ul li a {
 }
 .hero button {
   padding: 10px 20px;
-  background: blue;
-  color: white;
+  background: rgb(9, 253, 90);
+  color: #ffffff;
   border: none;
   cursor: pointer;
 }

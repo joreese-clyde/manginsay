@@ -1,18 +1,13 @@
-$primary: blue;
-$secondary: pink;
-$bg: #f4f4f4;
-$white: white;
-@mixin center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'responsive' as *;
 
 body {
     margin: 0;
     font-family: Arial;
     background: $bg;
 }
+
 nav {
     @include center;
     justify-content: space-between;
@@ -34,6 +29,7 @@ nav {
         }
     }
 }
+
 .hero {
     @include center;
     flex-direction: column;
@@ -46,9 +42,10 @@ nav {
         color: $white;
         border: none;
         cursor: pointer;
-    }
 }
-@media (max-width: 600px) {
+}
+
+@include mobile {
     nav {
         flex-direction: column;
         background: $secondary; 

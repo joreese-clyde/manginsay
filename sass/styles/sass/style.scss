@@ -1,0 +1,117 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "responsive" as *;
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: $bg;
+}
+
+
+nav {
+  @include center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: $primary;
+  color: $white;
+
+  h2 {
+    margin: 0;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-left: 20px;
+
+      a {
+        color: $white;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+
+.hero {
+  @include center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 80vh;
+  padding: 20px;
+
+  .hero-banner {
+    width: 100px;
+    max-width: 100px;
+    margin-bottom: 20px;
+
+    img {
+      width: 100px;
+      display: block;
+      border-radius: 10px;
+    }
+  }
+
+  h1 {
+    margin: 10px 0;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: $primary;
+    color: $white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+@include mobile {
+  nav {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+
+    ul {
+      flex-direction: column;
+      margin-top: 15px;
+
+      li {
+        margin: 10px 0;
+      }
+    }
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 40px 20px;
+
+    .hero-banner {
+      width: 100px;
+    }
+
+    button {
+      background: $secondary;
+    }
+  }
+}
