@@ -10,7 +10,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-  background: yellow;
+  background: rgb(9, 253, 90);
   color: #ffffff;
 }
 nav ul {
@@ -35,7 +35,7 @@ nav ul li a {
 }
 .hero button {
   padding: 10px 20px;
-  background: yellow;
+  background: rgb(9, 253, 90);
   color: #ffffff;
   border: none;
   cursor: pointer;

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Manginsay - Activity 4</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="script/script.js" defer></script>
+</head>
+
+<body>
+  <main class="page">
+    <div class="card">
+      <h1 class="page__heading">
+        Contact Me
+      </h1>
+      <p class="page__subtext">
+        Have a question? Send me a message.
+      </p>
+      <form id="contactForm" class="form" novalidate>
+        <div class="form__group">
+          <label class="form__label" for="name">
+            Name
+          </label>
+          <input class="form__input" type="text" id="name"name="name" placeholder="Enter your full name"  >
+          <span class="form__error" id="nameError"></span>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="email">
+            Email
+          </label>
+          <input class="form__input" type="email" id="email" name="email" placeholder="you@example.com">
+          <span class="form__error" id="emailError"></span>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="message">
+            Message
+          </label>
+
+          <textarea class="form__input form__textarea" id="message" name="message" rows="5" placeholder="Write your message here..."></textarea>
+          <span class="form__error" id="messageError"></span>
+        </div>
+
+        <button type="submit" class="form__submit">
+          Send Message
+        </button>
+
+      </form>
+      <div id="confirmation" class="confirmation" hidden>
+        <p>
+          Thank you! Your message has been sent successfully.
+        </p>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
