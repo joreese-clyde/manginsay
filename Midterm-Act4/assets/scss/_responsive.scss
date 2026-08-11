@@ -1,16 +1,23 @@
-@use "sass:map";
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
 
-$breakpoints: (
-  'mobile': 480px,
-  'tablet': 768px,
-  'laptop': 1024px,
-  'desktop': 1280px
-);
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 
+@mixin laptop {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
 
-/// @param {String} $breakpoint 
-@mixin respond-to($breakpoint) {
-  @media (max-width: map.get($breakpoints, $breakpoint)) {
+@mixin desktop {
+  @media (max-width: 1280px) {
     @content;
   }
 }
