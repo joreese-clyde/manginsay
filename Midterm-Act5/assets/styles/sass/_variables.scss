@@ -1,0 +1,23 @@
+// Colors
+$primary-color: #3b82f6;
+$accent-color: #f59e0b;
+
+$text-dark: #0f172a;
+$text-light: #ffffff;
+
+$dark-bg: #0f172a;
+$dark-text: #f8fafc;
+$dark-card-bg: #1e293b;
+
+$bg-light: #ffffff;
+$bg-card: #f8fafc;
+
+$border-color: #e2e8f0;
+
+// Breakpoints
+$breakpoints: (
+  "mobile": 480px,
+  "tablet": 768px,
+  "desktop": 1024px,
+  "wide": 1280px
+);

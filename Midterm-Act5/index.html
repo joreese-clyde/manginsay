@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manginsay | Activity 5</title>
+    <link rel="stylesheet" href="assets/styles/css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="navbar-container">
+
+        <a href="#" class="navbar-logo">
+            Manginsay<span>.</span>
+        </a>
+
+        <button class="navbar-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="navbar-bar"></span>
+            <span class="navbar-bar"></span>
+            <span class="navbar-bar"></span>
+        </button>
+
+        <nav class="navbar-menu" id="nav-menu">
+            <a href="#hero">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Joreese Clyde Manginsay</h1>
+            <p>Midterm - Activity 5</p>
+
+            <div class="hero-actions">
+                <button class="btn btn--outline" id="theme-toggle">
+                    Switch Theme
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="features" id="features">
+        <div class="container">
+
+            <h2>This is the features part</h2>
+            <p>Click the show more to expand its details.</p>
+            <div class="features-grid">
+                <article class="card">
+                    <h3>Web Systems & Technologies</h3>
+                    <p>
+                        I'm proficient in HTML, CSS, and JavaScript.
+                    </p>
+                    <div class="card-details" hidden>
+                        <p>
+                            But I'm currently learning SCSS integration
+                            in my tech stack.
+                        </p>
+                    </div>
+                    <button class="card-toggle-btn" aria-expanded="false">
+                        Show More
+                    </button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+
+            <h2>This is the About Section</h2>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy text ever since 1966, when designers at
+                Letraset and James Mosley, the librarian at St Bride
+                Printing Library in London, took a 1914 Cicero translation
+                and scrambled it to make dummy text for Letraset's Body
+                Type sheets.
+                It has survived not only many decades, but also the leap
+                into electronic typesetting, remaining essentially unchanged.
+            </p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>This is the Contact Section</h2>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy text ever since 1966.
+            </p>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <div class="container footer-container">
+        <p class="footer-copyright">
+            Copyright &copy; <span id="year"></span>.
+            All rights reserved.
+        </p>
+        <div class="footer-links">
+            <a href="https://joreeseclyde.dev">
+                My Portfolio
+            </a>
+        </div>
+    </div>
+</footer>
+<script src="script/script.js" defer></script>
+
+</body>
+</html>

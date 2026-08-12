@@ -1,0 +1,127 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: $light;
+  color: $dark;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 5%;
+  background: white;
+
+  .logo {
+    color: $primary;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .nav a {
+    color: $dark;
+    text-decoration: none;
+  }
+}
+.nav {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+
+  &.open {
+    display: flex;
+  }
+}
+
+.menu-btn {
+  display: block;
+}
+
+@include tablet {
+  .nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+}
+.hero {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 5%;
+  text-align: center;
+
+  h1 {
+    font-size: clamp(2rem, 7vw, 4.5rem);
+    margin: .5rem 0;
+  }
+
+  p {
+    color: $text;
+    line-height: 1.7;
+  }
+}
+.features {
+  width: min(90%, $max-width);
+  margin: 0 auto 4rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: $radius;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.btn {
+  border: 0;
+  padding: .9rem 1.2rem;
+  border-radius: $radius;
+  background: $primary;
+  color: white;
+  cursor: pointer;
+}
+.footer {
+ background: $dark;
+ color: white;
+ text-align: center;
+ padding: 1.5rem;
+ margin-top: 3rem;
+ font-size: 0.9rem;
+
+ #year {
+   font-weight: bold;
+   color: $light;
+ }
+}
