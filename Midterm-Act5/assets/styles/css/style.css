@@ -1,24 +1,36 @@
-/* Reset default browser spacing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Smooth scrolling when clicking navbar links */
 html {
   scroll-behavior: smooth;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Main page styles */
 body {
   background: #ffffff;
   color: #0f172a;
   line-height: 1.6;
 }
+body.dark-theme {
+  background: #0f172a;
+  color: #f8fafc;
+}
+body.dark-theme .navbar,
+body.dark-theme .navbar-menu {
+  background: #0f172a;
+  border-color: #334155;
+}
+body.dark-theme .navbar-bar {
+  background: #f8fafc;
+}
+body.dark-theme .card {
+  background: #1e293b;
+  border-color: #334155;
+}
 
-/* Reusable content width */
 .container,
 .navbar-container {
   width: 90%;
@@ -33,47 +45,44 @@ body {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
 }
-
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
 }
-
-/* Logo */
 .navbar-logo {
   color: inherit;
   font-size: 1.4rem;
   font-weight: bold;
   text-decoration: none;
 }
-
 .navbar-logo span {
   color: #3b82f6;
 }
-
-/* Hamburger button */
 .navbar-toggle {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 5px;
   width: 25px;
   background: none;
   border: none;
   cursor: pointer;
 }
-
-/* Hamburger lines */
+@media (min-width: 768px) {
+  .navbar-toggle {
+    display: none;
+  }
+}
 .navbar-bar {
   width: 100%;
   height: 2px;
   background: #0f172a;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-/* Mobile navigation */
 .navbar-menu {
-  display: flex;
+  display: none;
   flex-direction: column;
   position: absolute;
   top: 100%;
@@ -85,53 +94,45 @@ body {
   border-bottom: 1px solid #e2e8f0;
   gap: 1rem;
 }
-
-/* JavaScript adds this class when menu opens */
 .navbar-menu.is-active {
   display: flex;
 }
-
-/* Navigation links */
 .navbar-menu a {
   color: inherit;
   text-decoration: none;
 }
-
 .navbar-menu a:hover {
   color: #3b82f6;
 }
+@media (min-width: 768px) {
+  .navbar-menu {
+    display: flex !important;
+    position: static;
+    width: auto;
+    padding: 0;
+    border: none;
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
 
-/* Reduced the large empty space */
 .hero {
   padding: 6rem 1rem;
   text-align: center;
   border-bottom: 1px solid #e2e8f0;
 }
-
 .hero h1 {
   font-size: 2.5rem;
 }
-
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+}
 .hero p {
   margin: 0.5rem 0 1.2rem;
 }
 
-/* Button */
-.btn {
-  padding: 0.6rem 1rem;
-  background: transparent;
-  color: inherit;
-  border: 1px solid #3b82f6;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: #3b82f6;
-  color: white;
-}
-
-/* Smaller padding = less empty space */
 .features,
 .about,
 .contact {
@@ -142,6 +143,26 @@ body {
 .features-grid {
   margin-top: 1.5rem;
 }
+@media (min-width: 768px) {
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.btn {
+  padding: 0.6rem 1rem;
+  background: transparent;
+  color: inherit;
+  border: 1px solid #3b82f6;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #3b82f6;
+  color: #ffffff;
+}
 
 .card {
   padding: 1.5rem;
@@ -149,21 +170,17 @@ body {
   border: 1px solid #e2e8f0;
   border-radius: 8px;
 }
-
 .card h3 {
   margin-bottom: 0.5rem;
 }
-
 .card-details {
   margin-top: 1rem;
 }
-
-/* Show More button */
 .card-toggle-btn {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   background: #3b82f6;
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -172,68 +189,15 @@ body {
 .footer {
   padding: 1.5rem 0;
 }
-
 .footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .footer a {
   color: inherit;
   text-decoration: none;
 }
-
 .footer a:hover {
   color: #3b82f6;
-}
-
-body.dark-theme {
-  background: #0f172a;
-  color: #f8fafc;
-}
-
-/* Change navbar when dark mode is active */
-body.dark-theme .navbar,
-body.dark-theme .navbar-menu {
-  background: #0f172a;
-  border-color: #334155;
-}
-
-/* Change hamburger color */
-body.dark-theme .navbar-bar {
-  background: #f8fafc;
-}
-
-/* Change cards */
-body.dark-theme .card {
-  background: #1e293b;
-  border-color: #334155;
-}
-
-@media (min-width: 768px) {
-  /* Hide hamburger on larger screens */
-  .navbar-toggle {
-    display: none;
-  }
-  /* Show navigation horizontally */
-  .navbar-menu {
-    display: flex;
-    position: static;
-    width: auto;
-    padding: 0;
-    border: none;
-    flex-direction: row;
-    gap: 2rem;
-  }
-  /* Bigger heading on desktop */
-  .hero h1 {
-    font-size: 3rem;
-  }
-  /* Two-column card layout */
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
 }/*# sourceMappingURL=style.css.map */

@@ -2,246 +2,224 @@
 @use 'responsive' as *;
 @use 'mixins' as *;
 
-/* Reset default browser spacing */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Smooth scrolling when clicking navbar links */
 html {
-    scroll-behavior: smooth;
-    font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  font-family: $font-family;
 }
 
-/* Main page styles */
 body {
-    background: $bg-light;
-    color: $text-dark;
-    line-height: 1.6;
+  background: $bg-light;
+  color: $text-dark;
+  line-height: 1.6;
+
+  &.dark-theme {
+    background: $dark-bg;
+    color: $dark-text;
+
+    .navbar,
+    .navbar-menu {
+      background: $dark-bg;
+      border-color: $dark-border-color;
+    }
+
+    .navbar-bar {
+      background: $dark-text;
+    }
+
+    .card {
+      background: $dark-card-bg;
+      border-color: $dark-border-color;
+    }
+  }
 }
 
-/* Reusable content width */
 .container,
 .navbar-container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
 }
 
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: $bg-light;
-    border-bottom: 1px solid $border-color;
-}
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: $bg-light;
+  border-bottom: 1px solid $border-color;
 
-.navbar-container {
+  &-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
-}
+  }
 
-/* Logo */
-.navbar-logo {
+  &-logo {
     color: inherit;
     font-size: 1.4rem;
     font-weight: bold;
     text-decoration: none;
-}
 
-.navbar-logo span {
-    color: $primary-color;
-}
+    span {
+      color: $primary-color;
+    }
+  }
 
-/* Hamburger button */
-.navbar-toggle {
+  &-toggle {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 5px;
     width: 25px;
     background: none;
     border: none;
     cursor: pointer;
-}
 
-/* Hamburger lines */
-.navbar-bar {
+    @include respond-to("tablet") {
+      display: none;
+    }
+  }
+
+  &-bar {
     width: 100%;
     height: 2px;
     background: $text-dark;
-}
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
 
-/* Mobile navigation */
-.navbar-menu {
-    display: flex;
+  &-menu {
+    display: none; 
     flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    align-items: center; 
+    align-items: center;
     padding: 1rem 5%;
     background: $bg-light;
     border-bottom: 1px solid $border-color;
     gap: 1rem;
+
+    &.is-active {
+      display: flex;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    @include respond-to("tablet") {
+      display: flex !important;
+      position: static;
+      width: auto;
+      padding: 0;
+      border: none;
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
 }
 
-/* JavaScript adds this class when menu opens */
-.navbar-menu.is-active {
-    display: flex;
-}
-
-/* Navigation links */
-.navbar-menu a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.navbar-menu a:hover {
-    color: $primary-color;
-}
-
-/* Reduced the large empty space */
 .hero {
-    padding: 6rem 1rem;
-    text-align: center;
-    border-bottom: 1px solid $border-color;
-}
+  padding: 6rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid $border-color;
 
-.hero h1 {
+  h1 {
     font-size: 2.5rem;
-}
 
-.hero p {
+    @include respond-to("tablet") {
+      font-size: 3rem;
+    }
+  }
+
+  p {
     margin: 0.5rem 0 1.2rem;
+  }
 }
 
-/* Button */
-.btn {
-    padding: 0.6rem 1rem;
-    background: transparent;
-    color: inherit;
-    border: 1px solid $primary-color;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background: $primary-color;
-    color: white;
-}
-
-/* Smaller padding = less empty space */
 .features,
 .about,
 .contact {
-    padding: 3rem 0;
-    border-bottom: 1px solid $border-color;
+  padding: 3rem 0;
+  border-bottom: 1px solid $border-color;
 }
 
 .features-grid {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
+
+  @include respond-to("tablet") {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.btn {
+  padding: 0.6rem 1rem;
+  background: transparent;
+  color: inherit;
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background: $primary-color;
+    color: $bg-light;
+  }
 }
 
 .card {
-    padding: 1.5rem;
-    background: $bg-light;
-    border: 1px solid $border-color;
-    border-radius: 8px;
-}
+  padding: 1.5rem;
+  background: $bg-light;
+  border: 1px solid $border-color;
+  border-radius: 8px;
 
-.card h3 {
+  h3 {
     margin-bottom: 0.5rem;
-}
+  }
 
-.card-details {
+  &-details {
     margin-top: 1rem;
-}
+  }
 
-/* Show More button */
-.card-toggle-btn {
+  &-toggle-btn {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     background: $primary-color;
-    color: white;
+    color: $bg-light;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }
 }
 
 .footer {
-    padding: 1.5rem 0;
-}
+  padding: 1.5rem 0;
 
-.footer-container {
+  &-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+  }
 
-.footer a {
+  a {
     color: inherit;
     text-decoration: none;
-}
 
-.footer a:hover {
-    color: $primary-color;
-}
-
-body.dark-theme {
-    background: $dark-bg;
-    color: $dark-text;
-}
-
-/* Change navbar when dark mode is active */
-body.dark-theme .navbar,
-body.dark-theme .navbar-menu {
-    background: $dark-bg;
-    border-color: #334155;
-}
-
-/* Change hamburger color */
-body.dark-theme .navbar-bar {
-    background: $dark-text;
-}
-
-/* Change cards */
-body.dark-theme .card {
-    background: $dark-card-bg;
-    border-color: #334155;
-}
-
-@include respond-to("tablet") {
-
-    /* Hide hamburger on larger screens */
-    .navbar-toggle {
-        display: none;
+    &:hover {
+      color: $primary-color;
     }
-
-    /* Show navigation horizontally */
-    .navbar-menu {
-        display: flex;
-        position: static;
-        width: auto;
-        padding: 0;
-        border: none;
-        flex-direction: row;
-        gap: 2rem;
-    }
-
-    /* Bigger heading on desktop */
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    /* Two-column card layout */
-    .features-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
+  }
 }
