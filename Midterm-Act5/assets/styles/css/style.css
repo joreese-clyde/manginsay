@@ -88,7 +88,7 @@ body.dark-theme .card {
   top: 100%;
   left: 0;
   width: 100%;
-  align-items: center;
+  align-items: left;
   padding: 1rem 5%;
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
@@ -179,11 +179,15 @@ body.dark-theme .card {
 .card-toggle-btn {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  background: #3b82f6;
-  color: #ffffff;
-  border: none;
+  background: transparent;
+  color: inherit;
+  border: 1px solid #3b82f6;
   border-radius: 5px;
   cursor: pointer;
+}
+.card-toggle-btn:hover {
+  background: #3b82f6;
+  color: #ffffff;
 }
 
 .footer {

@@ -100,7 +100,7 @@ body {
     top: 100%;
     left: 0;
     width: 100%;
-    align-items: center;
+    align-items: left;
     padding: 1rem 5%;
     background: $bg-light;
     border-bottom: 1px solid $border-color;
@@ -197,12 +197,17 @@ body {
   &-toggle-btn {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background: $primary-color;
-    color: $bg-light;
-    border: none;
+    background: transparent;
+    color: inherit;
+    border: 1px solid $primary-color;
     border-radius: 5px;
     cursor: pointer;
+    &:hover {
+    background: $primary-color;
+    color: $bg-light;
   }
+  }
+
 }
 
 .footer {

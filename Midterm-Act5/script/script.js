@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation(); // Mapugngan nga ma-cancel sa ubang events ang click
+      e.stopPropagation();
       
       navMenu.classList.toggle('is-active');
       menuToggle.classList.toggle('is-active');
@@ -12,10 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const isExpanded = navMenu.classList.contains('is-active');
       menuToggle.setAttribute('aria-expanded', isExpanded);
 
-      console.log('Hamburger clicked! Active status:', isExpanded); // Para sa debugging
+      console.log('Hamburger clicked! Active status:', isExpanded);
     });
 
-    // Close menu when clicking links
     const navLinks = navMenu.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Close menu when clicking anywhere outside
     document.addEventListener('click', (e) => {
       if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
         navMenu.classList.remove('is-active');
@@ -35,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- CARD TOGGLE ---
   const cardToggleBtns = document.querySelectorAll('.card-toggle-btn');
 
   cardToggleBtns.forEach(btn => {
@@ -58,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- THEME TOGGLE ---
   const themeToggleBtn = document.getElementById('theme-toggle');
 
   if (themeToggleBtn) {
@@ -70,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- COPYRIGHT YEAR ---
   const yearSpan = document.getElementById('year');
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
