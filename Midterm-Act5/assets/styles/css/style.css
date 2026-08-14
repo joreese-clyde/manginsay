@@ -57,9 +57,6 @@ body.dark-theme .card {
   font-weight: bold;
   text-decoration: none;
 }
-.navbar-logo span {
-  color: #3b82f6;
-}
 .navbar-toggle {
   display: flex;
   flex-direction: column;
