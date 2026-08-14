@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isExpanded = navMenu.classList.contains('is-active');
       menuToggle.setAttribute('aria-expanded', isExpanded);
 
-      console.log('Hamburger clicked! Active status:', isExpanded);
+      //console.log('Hamburger clicked! Active status:', isExpanded);
     });
 
     const navLinks = navMenu.querySelectorAll('a');
@@ -50,7 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
           details.setAttribute('hidden', '');
           button.textContent = 'Show More';
           button.setAttribute('aria-expanded', 'false');
+
         }
+        //console.log('Hamburger clicked! Active status:', button.getAttribute('aria-expanded'));
       }
     });
   });

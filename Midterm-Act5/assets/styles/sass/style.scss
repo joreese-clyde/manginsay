@@ -164,8 +164,8 @@ body {
 
 .btn {
   padding: 0.6rem 1rem;
-  background: transparent;
-  color: inherit;
+  background: $primary-color;
+  color: $bg-light;
   border: 1px solid $primary-color;
   border-radius: 5px;
   cursor: pointer;
