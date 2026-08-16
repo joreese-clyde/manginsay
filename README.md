@@ -1,4 +1,4 @@
-This repository is intended for my IT313 Subject. 
+This repository is intended for my CS310 Subject. 
 
 
 //preferences:open user settings (json)
