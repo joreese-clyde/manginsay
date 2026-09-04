@@ -1,13 +1,11 @@
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #ffffff;
   color: #0f172a;
   line-height: 1.5;
@@ -33,11 +31,6 @@ header {
   border-bottom: 1px solid #e2e8f0;
   padding-bottom: 1.5rem;
 }
-@media (prefers-color-scheme: dark) {
-  header {
-    border-color: #334155;
-  }
-}
 @media (min-width: 768px) {
   header {
     flex-direction: row;
@@ -47,15 +40,14 @@ header {
 }
 header h1 {
   font-size: 1.75rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: bold;
 }
 header p {
   font-size: 0.95rem;
   opacity: 0.8;
-  color: #ffffff;
 }
-header #loadBtn {
+
+button {
   background-color: #3b82f6;
   color: #ffffff;
   border: none;
@@ -64,12 +56,12 @@ header #loadBtn {
   font-weight: 600;
   border-radius: 6px;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.1s ease;
+  transition: opacity 0.2s ease;
 }
-header #loadBtn:hover {
+button:hover {
   opacity: 0.9;
 }
-header #loadBtn:active {
+button:active {
   transform: scale(0.98);
 }
 
@@ -77,23 +69,20 @@ header #loadBtn:active {
   margin-bottom: 1rem;
   font-style: italic;
   font-size: 0.9rem;
-  color: #3b82f6;
 }
 
-#users {
+#list {
   display: grid;
   gap: 1rem;
-  list-style: none;
-  color: #ffffff;
 }
-#users .user-card {
+#list .user-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
   padding: 1rem;
   border-radius: 6px;
 }
 @media (prefers-color-scheme: dark) {
-  #users .user-card {
+  #list .user-card {
     background-color: #1e293b;
     border-color: #334155;
   }

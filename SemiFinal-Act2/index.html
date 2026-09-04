@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Activity 2</title>
-<link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 2</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="script/script.js" defer></script>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div>
-        <h1>Roster</h1>
-        <p>Pull the current list of people and their contact details.</p>
+        <h1>List</h1>
+        <p>Get the details dawg.</p>
       </div>
-      <button id="loadBtn" type="button">Load users</button>
+      <button id="loadBtn">Load Users</button>
     </header>
 
-    <div id="status" role="status" aria-live="polite"></div>
-    <div id="list"></div>
+    <div id="status"></div>
+    <ul id="users"></ul>
   </div>
-
-<head>
-  <script src="script/script.js" defer></script>
-</head>
 </body>
 </html>
