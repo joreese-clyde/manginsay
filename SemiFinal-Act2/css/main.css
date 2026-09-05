@@ -1,6 +1,4 @@
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -25,51 +23,56 @@ body {
   margin: 0 auto;
 }
 
-header {
+nav {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
   padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
 }
 @media (prefers-color-scheme: dark) {
-  header {
+  nav {
     border-color: #334155;
   }
 }
 @media (min-width: 768px) {
-  header {
+  nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
 }
-header h1 {
+nav h1 {
   font-size: 1.75rem;
   font-weight: 700;
   color: #ffffff;
 }
-header p {
+nav p {
   font-size: 0.95rem;
   opacity: 0.8;
   color: #ffffff;
 }
-header #loadBtn {
+nav #loadBtn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 6px;
   background-color: #3b82f6;
   color: #ffffff;
-  border: none;
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
   font-weight: 600;
-  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
   transition: opacity 0.2s ease, transform 0.1s ease;
 }
-header #loadBtn:hover {
+nav #loadBtn:hover {
   opacity: 0.9;
 }
-header #loadBtn:active {
+nav #loadBtn {
+  font-size: 1rem;
+}
+nav #loadBtn:active {
   transform: scale(0.98);
 }
 
@@ -77,24 +80,53 @@ header #loadBtn:active {
   margin-bottom: 1rem;
   font-style: italic;
   font-size: 0.9rem;
-  color: #3b82f6;
+  color: yellow;
+}
+
+.user-headers,
+#users li {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.user-headers {
+  font-weight: bold;
+  font-style: italic;
+  color: yellow;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+@media (prefers-color-scheme: dark) {
+  .user-headers {
+    border-color: #334155;
+  }
 }
 
 #users {
-  display: grid;
-  gap: 1rem;
+  padding: 0;
   list-style: none;
-  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
-#users .user-card {
-  background-color: #ffffff;
+#users li {
+  align-items: center;
+  color: yellow;
   border: 1px solid #e2e8f0;
-  padding: 1rem;
   border-radius: 6px;
 }
 @media (prefers-color-scheme: dark) {
-  #users .user-card {
+  #users li {
     background-color: #1e293b;
     border-color: #334155;
   }
 }
+
+.footer-desc {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: auto;
+  color: pink;
+}/*# sourceMappingURL=main.css.map */

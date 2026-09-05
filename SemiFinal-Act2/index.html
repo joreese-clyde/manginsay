@@ -8,17 +8,24 @@
   <script src="script/script.js" defer></script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>List</h1>
-        <p>Get the details dawg.</p>
-      </div>
-      <button id="loadBtn">Load Users</button>
-    </header>
-
-    <div id="status"></div>
-    <ul id="users"></ul>
+ <main class="wrap">
+  <nav>
+    <div>
+      <h1>List</h1>
+      <p>Get the details dawg.</p>
+    </div>
+    <button id="loadBtn">Load Users</button>
+  </nav>
+  <div id="status"></div>
+  <div class="user-headers">
+    <span>Name</span> <span>Username</span> <span>Email</span> <span>Phone</span> <span>Company</span>
   </div>
+  <ul id="users"></ul>
+</main>
+<footer>
+    <p class="footer-desc">
+      &copy; <span id="year"></span> Activity 2 Semi. All rights reserved.
+    </p>
+</footer>
 </body>
 </html>
