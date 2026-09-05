@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #ffffff;
   color: #0f172a;
   line-height: 1.5;
@@ -23,45 +23,56 @@ body {
   margin: 0 auto;
 }
 
-header {
+nav {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
   padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+@media (prefers-color-scheme: dark) {
+  nav {
+    border-color: #334155;
+  }
 }
 @media (min-width: 768px) {
-  header {
+  nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
 }
-header h1 {
+nav h1 {
   font-size: 1.75rem;
-  font-weight: bold;
+  font-weight: 700;
+  color: #ffffff;
 }
-header p {
+nav p {
   font-size: 0.95rem;
   opacity: 0.8;
+  color: #ffffff;
 }
-
-button {
+nav #loadBtn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 6px;
   background-color: #3b82f6;
   color: #ffffff;
-  border: none;
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
   font-weight: 600;
-  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.1s ease;
 }
-button:hover {
+nav #loadBtn:hover {
   opacity: 0.9;
 }
-button:active {
+nav #loadBtn {
+  font-size: 1rem;
+}
+nav #loadBtn:active {
   transform: scale(0.98);
 }
 
@@ -69,21 +80,53 @@ button:active {
   margin-bottom: 1rem;
   font-style: italic;
   font-size: 0.9rem;
+  color: yellow;
 }
 
-#list {
+.user-headers,
+#users li {
   display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
-}
-#list .user-card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
   padding: 1rem;
+}
+
+.user-headers {
+  font-weight: bold;
+  font-style: italic;
+  color: yellow;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+@media (prefers-color-scheme: dark) {
+  .user-headers {
+    border-color: #334155;
+  }
+}
+
+#users {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+#users li {
+  align-items: center;
+  color: yellow;
+  border: 1px solid #e2e8f0;
   border-radius: 6px;
 }
 @media (prefers-color-scheme: dark) {
-  #list .user-card {
+  #users li {
     background-color: #1e293b;
     border-color: #334155;
   }
+}
+
+.footer-desc {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: auto;
+  color: pink;
 }/*# sourceMappingURL=main.css.map */

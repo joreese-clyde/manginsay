@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Activity 2</title>
-<link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>Roster</h1>
-        <p>Pull the current list of people and their contact details.</p>
-      </div>
-      <button id="loadBtn" type="button">Load users</button>
-    </header>
-
-    <div id="status" role="status" aria-live="polite"></div>
-    <div id="list"></div>
-  </div>
-
-<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 2</title>
+  <link rel="stylesheet" href="css/main.css">
   <script src="script/script.js" defer></script>
 </head>
+<body>
+ <main class="wrap">
+  <nav>
+    <div>
+      <h1>List</h1>
+      <p>Get the details dawg.</p>
+    </div>
+    <button id="loadBtn">Load Users</button>
+  </nav>
+  <div id="status"></div>
+  <div class="user-headers">
+    <span>Name</span> <span>Username</span> <span>Email</span> <span>Phone</span> <span>Company</span>
+  </div>
+  <ul id="users"></ul>
+</main>
+<footer>
+    <p class="footer-desc">
+      &copy; <span id="year"></span> Activity 2 Semi. All rights reserved.
+    </p>
+</footer>
 </body>
 </html>

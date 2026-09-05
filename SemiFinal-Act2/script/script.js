@@ -1,72 +1,38 @@
-const API_URL = 'https://jsonplaceholder.typicode.com/users';
-    const loadBtn = document.getElementById('loadBtn');
-    const statusEl = document.getElementById('status');
-    const listEl = document.getElementById('list');
+const loadBtn = document.getElementById("loadBtn");
+const statusDiv = document.getElementById("status");
+const list = document.getElementById("users");
+const yearSpan = document.getElementById('year');
 
-    function setStatus(message, state) {
-      statusEl.textContent = message || '';
-      if (state) {
-        statusEl.setAttribute('data-state', state);
-      } else {
-        statusEl.removeAttribute('data-state');
+loadBtn.addEventListener("click", () => {
+  list.innerHTML = "";
+  statusDiv.textContent = "Loading...";
+
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
       }
-    }
+      return response.json();
+    })
+    .then(users => {
+      //erase loading message
+      statusDiv.textContent = "";
 
-    function renderUsers(users) {
-      listEl.innerHTML = '';
-      users.forEach(function(user) {
-        const card = document.createElement('div');
-        card.className = 'card';
+      //user details
+      users.forEach(user => {
+        const item = document.createElement("li");
 
-        const companyName = (user.company && user.company.name) ? user.company.name : 'Not listed';
-
-        card.innerHTML =
-          '<p class="name">' + escapeHtml(user.name) + '</p>' +
-          '<p class="username">@' + escapeHtml(user.username) + '</p>' +
-          '<div class="field">Email<span>' + escapeHtml(user.email) + '</span></div>' +
-          '<div class="field">Phone<span>' + escapeHtml(user.phone) + '</span></div>' +
-          '<div class="field">Company<span>' + escapeHtml(companyName) + '</span></div>';
-
-        listEl.appendChild(card);
+        item.innerHTML = `
+          <span>${user.name}</span> <span>@${user.username}</span> <span>${user.email}</span> <span>${user.phone}</span> <span>${user.company.name}</span>
+        `;
+        list.appendChild(item);
       });
-    }
+    })
+    .catch(error => {
+      statusDiv.textContent = "Error loading users. Please try again.";
+    });
+});
 
-    function escapeHtml(str) {
-      const div = document.createElement('div');
-      div.textContent = str == null ? '' : String(str);
-      return div.innerHTML;
-    }
-
-    async function loadUsers() {
-      loadBtn.disabled = true;
-      listEl.innerHTML = '';
-      
-      // Set loading message and visual state
-      setStatus('Loading…', 'loading');
-
-      try {
-        const response = await fetch(API_URL);
-
-        if (!response.ok) {
-          throw new Error('Server responded with status ' + response.status);
-        }
-
-        const users = await response.json();
-
-        if (!Array.isArray(users) || users.length === 0) {
-          setStatus('No users were found.');
-          return;
-        }
-
-        setStatus(users.length + ' users loaded.');
-        renderUsers(users);
-
-      } catch (err) {
-        // Display user-facing error message
-        setStatus('Could not load users. Check your connection and try again.', 'error');
-      } finally {
-        loadBtn.disabled = false;
-      }
-    }
-
-    loadBtn.addEventListener('click', loadUsers);
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
