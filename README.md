@@ -13,3 +13,9 @@ This repository is intended for my CS310 Subject.
 }
 
 mao ni na command par amo separate ang scss sa css
+
+
+
+cd "C:\xampp\htdocs\manginsay"
+
+http://localhost/manginsay/SemiFinal-Act3/index.php
