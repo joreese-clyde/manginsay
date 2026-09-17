@@ -1,0 +1,122 @@
+@use 'components/variables' as *;
+@use 'components/responsive' as *;
+@use 'components/mixins' as *;
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family;
+  background-color: $bg-light;
+  color: $text-dark;
+  line-height: 1.5;
+  padding: 2rem;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $dark-bg;
+    color: $dark-text;
+  }
+}
+
+.wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid $border-color;
+
+  @media (prefers-color-scheme: dark) {
+    border-color: $dark-border-color;
+  }
+
+  @include respond-to("tablet") {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $bg-light;
+  }
+
+  p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    color: $bg-light;
+  }
+
+  #loadBtn {
+    @include button-base($primary-color, $bg-light);
+    font-size: 1rem;
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+#status {
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: yellow;
+}
+
+.user-headers,
+#users li {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.user-headers {
+  font-weight: bold;
+  font-style: italic;
+  color: yellow;
+  border-bottom: 2px solid $border-color;
+  margin-bottom: 0.5rem;
+
+  @media (prefers-color-scheme: dark) {
+    border-color: $dark-border-color;
+  }
+}
+
+#users {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  li {
+    align-items: center;
+    color: yellow;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: $dark-card-bg;
+      border-color: $dark-border-color;
+    }
+  }
+}
+
+.footer-desc {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: auto;
+  color: pink;
+}
