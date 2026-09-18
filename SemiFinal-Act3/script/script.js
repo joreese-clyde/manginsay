@@ -5,13 +5,14 @@ if (toggleResult && resultCard) {
     toggleResult.addEventListener("click", function () {
         if (resultCard.style.display === "none") {
             resultCard.style.display = "block";
-            toggleResult.textContent = "Hide Result";
+            toggleResult.textContent = "Hide the Result";
         } else {
             resultCard.style.display = "none";
-            toggleResult.textContent = "Show Result";
+            toggleResult.textContent = "Show the Result";
         }
     });
 }
+
 const gradeForm = document.getElementById("gradeForm");
 
 gradeForm.addEventListener("submit", function (event) {
