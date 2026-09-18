@@ -2,16 +2,16 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $student_name = $_POST['student_name'];
     $student_id = $_POST['student_id'];
+    $course = $_POST['course'];
+
     $grade1 = $_POST['grade1'];
     $grade2 = $_POST['grade2'];
     $grade3 = $_POST['grade3'];
 
-    // Calculate total and average
     $total = $grade1 + $grade2 + $grade3;
     $average = $total / 3;
     $average = round($average, 2);
 
-    // Determine letter grade
     if ($average >= 90) {
         $letter = "A";
     } elseif ($average >= 80) {
@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $letter = "F";
     }
 
-    // Determine pass/fail status
     if ($average >= 75) {
         $status = "Passed";
     } else {
@@ -46,71 +45,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="page">
 
-        <div class="header">
+        <div class="card">        
+            <div class="header">
             <h1>Grade Calculator</h1>
             <p>Enter three grades to get the final average.</p>
         </div>
-
-        <div class="card">
             <form action="index.php" method="POST" id="gradeForm">
 
                 <div class="field">
                     <label for="student_name">Student Name</label>
-                    <input
-                        type="text"
-                        id="student_name"
-                        name="student_name"
-                        required
-                    >
+                    <input type="text" id="student_name" name="student_name" required>
                 </div>
 
                 <div class="field">
                     <label for="student_id">Student ID</label>
-                    <input
-                        type="text"
-                        id="student_id"
-                        name="student_id"
-                        required
-                    >
+                    <input type="text" id="student_id" name="student_id" required>
+                </div>
+                <div class="field">
+                    <label for="course">Student Course</label>
+                    <input type="text" id="course" name="course" required>
                 </div>
 
                 <div class="field">
                     <label for="grade1">Grade 1</label>
-                    <input
-                        type="number"
-                        id="grade1"
-                        name="grade1"
-                        min="0"
-                        max="100"
-                        step="0.01"
-                        required
-                    >
+                    <input type="number" id="grade1" name="grade1" min="0" max="100" step="0.01" required>
                 </div>
 
                 <div class="field">
                     <label for="grade2">Grade 2</label>
-                    <input
-                        type="number"
-                        id="grade2"
-                        name="grade2"
-                        min="0"
-                        max="100"
-                        step="0.01"
-                        required
-                    >
+                    <input type="number" id="grade2" name="grade2" min="0" max="100" step="0.01" required>
                 </div>
 
                 <div class="field">
                     <label for="grade3">Grade 3</label>
-                    <input
-                        type="number"
-                        id="grade3"
-                        name="grade3"
-                        min="0"
-                        max="100"
-                        step="0.01"
-                        required
-                    >
+                    <input type="number" id="grade3" name="grade3" min="0" max="100" step="0.01" required>
                 </div>
 
                 <button type="submit" class="btn">
@@ -129,6 +97,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="card" id="resultCard">
+                    <div class="card">        
+                        <div class="header">
+                        <h1>Calculated grade of <?php echo htmlspecialchars($student_name);?></h1>
+                    </div>
 
                 <p>
                     <strong>Student Name:</strong>
@@ -139,6 +111,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <strong>Student ID:</strong>
                     <?php echo htmlspecialchars($student_id); ?>
                 </p>
+                
+                <p>
+                    <strong>Student Course:</strong>
+                    <?php echo htmlspecialchars($course); ?>
+                </p>
+
 
                 <p>
                     <strong>Grade 1:</strong>
@@ -167,8 +145,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <p>
                     <strong>Status:</strong>
-                    <?php echo $status; ?>
+                    <span class="status <?= strtolower($status) ?>">
+                        <?= $status ?>
+                    </span>
                 </p>
+
 
             </div>
 

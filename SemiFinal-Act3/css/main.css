@@ -44,7 +44,7 @@ body {
 }
 .header p {
   margin: 0;
-  color: rgb(55.2631578947, 84.7368421053, 154.7368421053);
+  color: yellow;
   font-size: 0.9rem;
 }
 
@@ -116,7 +116,7 @@ body {
   cursor: pointer;
 }
 .btn:hover {
-  background-color: rgb(11.1512195122, 99.1219512195, 242.8487804878);
+  background-color: #0f172a;
   opacity: 1;
 }
 .btn:active {
@@ -139,7 +139,7 @@ body {
   border-bottom: none;
 }
 .result-list .label {
-  color: rgb(55.2631578947, 84.7368421053, 154.7368421053);
+  color: #ffffff;
 }
 .result-list .value {
   font-weight: 600;
@@ -163,16 +163,15 @@ body {
   margin-top: 0.5rem;
   padding: 0.25rem 0.7rem;
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: 2rem;
   font-weight: 700;
+  line-height: 1;
 }
-.status.pass {
-  color: #15803d;
-  background: #dcfce7;
+.status.passed {
+  color: green;
 }
-.status.fail {
-  color: #b91c1c;
-  background: #fee2e2;
+.status.failed {
+  color: red;
 }
 
 .back-link {
